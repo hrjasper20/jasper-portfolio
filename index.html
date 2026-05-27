@@ -431,6 +431,95 @@ footer{border-top:1px solid var(--border);padding:36px 40px;text-align:center}
 }
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+
+/* PROJECT POPUP MODAL */
+.project-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.78);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s ease;
+  z-index:9999;
+}
+.project-modal.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.project-modal-content{
+  width:min(900px,95%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:linear-gradient(135deg,#111118,#1a1a24);
+  border:1px solid rgba(124,111,247,0.25);
+  border-radius:24px;
+  padding:34px;
+  position:relative;
+  box-shadow:0 0 50px rgba(124,111,247,0.18);
+  animation:modalPop .25s ease;
+}
+@keyframes modalPop{
+  from{transform:scale(.96) translateY(10px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+.project-modal-close{
+  position:absolute;
+  top:18px;
+  right:18px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:none;
+  background:rgba(124,111,247,0.14);
+  color:#fff;
+  cursor:pointer;
+  font-size:20px;
+}
+.project-clickable{
+  cursor:pointer;
+}
+.project-clickable:hover{
+  transform:translateY(-5px) scale(1.01);
+}
+.modal-title{
+  font-family:'Syne',sans-serif;
+  font-size:38px;
+  margin-bottom:10px;
+}
+.modal-sub{
+  color:#a8a3c8;
+  margin-bottom:24px;
+}
+.modal-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:20px;
+}
+.modal-box{
+  background:#16161f;
+  border:1px solid rgba(124,111,247,0.16);
+  border-radius:16px;
+  padding:18px;
+}
+.modal-box h4{
+  margin-bottom:8px;
+  color:#a89ef9;
+}
+@media(max-width:768px){
+  .modal-grid{
+    grid-template-columns:1fr;
+  }
+  .modal-title{
+    font-size:28px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -490,7 +579,7 @@ footer{border-top:1px solid var(--border);padding:36px 40px;text-align:center}
     <a href="#projects" class="btn-secondary">See my work</a>
   </div>
   <div class="stats-bar">
-    <div class="stat"><div class="stat-num" data-target="7" data-suffix="+">0</div><div class="stat-label">Automation projects built</div></div>
+    <div class="stat"><div class="stat-num" data-target="8" data-suffix="+">0</div><div class="stat-label">Automation projects built</div></div>
     <div class="stat"><div class="stat-num" data-target="2025" data-suffix="" data-display="2025">0</div><div class="stat-label">Building systems since</div></div>
     <div class="stat"><div class="stat-num" data-target="40" data-suffix="hrs+">0</div><div class="stat-label">Avg. hours saved per project</div></div>
     <div class="stat"><div class="stat-num" data-target="247" data-suffix="" data-display="24/7">0</div><div class="stat-label">Systems run non-stop</div></div>
@@ -549,7 +638,7 @@ footer{border-top:1px solid var(--border);padding:36px 40px;text-align:center}
   <p class="section-sub">Actual automation projects built for real business problems.</p>
   <div class="projects-grid">
 
-    <div class="case-study-card reveal">
+    <div class="case-study-card reveal project-clickable" onclick="openProjectModal()">
       <div class="case-study-header">
         <div>
           <div class="case-study-kicker">GoHighLevel Case Study</div>
@@ -748,6 +837,43 @@ footer{border-top:1px solid var(--border);padding:36px 40px;text-align:center}
             ✅ Xiaomi AI → Generate Reply<br>
             ✅ Gmail → Send Email
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 8: AI Lead Qualifier -->
+    <div class="project-card">
+      <div class="project-label">🔥 NEW — Project 8</div>
+      <h3>AI Lead Qualifier System — n8n + Xiaomi AI + Gmail</h3>
+      <p>Built an AI-powered lead qualification system that automatically classifies every form submission as HOT, WARM, or COLD — then sends a personalized email based on lead quality. Zero manual work, instant response, fully automated routing.</p>
+      <div class="project-tools">
+        <span class="tool-pill">n8n</span>
+        <span class="tool-pill">Xiaomi AI</span>
+        <span class="tool-pill">Gmail</span>
+        <span class="tool-pill">Webhook</span>
+        <span class="tool-pill">Switch Node</span>
+      </div>
+      <div style="margin-top:14px;display:flex;gap:12px;">
+        <div style="flex:1;background:rgba(0,212,170,0.07);border:1px solid rgba(0,212,170,0.2);border-radius:10px;padding:14px 16px;">
+          <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--cyan);line-height:1;margin-bottom:4px;">3x</div>
+          <div style="font-size:12px;color:var(--text2);">Email paths — HOT, WARM, COLD</div>
+        </div>
+        <div style="flex:1;background:rgba(0,212,170,0.07);border:1px solid rgba(0,212,170,0.2);border-radius:10px;padding:14px 16px;">
+          <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--cyan);line-height:1;margin-bottom:4px;">0</div>
+          <div style="font-size:12px;color:var(--text2);">Manual qualification needed</div>
+        </div>
+        <div style="flex:1;background:rgba(0,212,170,0.07);border:1px solid rgba(0,212,170,0.2);border-radius:10px;padding:14px 16px;">
+          <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--cyan);line-height:1;margin-bottom:4px;">AI</div>
+          <div style="font-size:12px;color:var(--text2);">Xiaomi AI classifies every lead</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;border-radius:10px;overflow:hidden;border:1px solid rgba(124,111,247,0.2);">
+        <div style="background:var(--bg3);padding:8px 12px;font-size:11px;color:var(--cyan);font-weight:600;letter-spacing:1px;text-transform:uppercase;">Automation Flow</div>
+        <div style="background:var(--bg2);padding:12px;font-size:12px;color:var(--text2);line-height:1.8;">
+          ✅ Webhook → Catch Lead Form Submission<br>
+          ✅ Xiaomi AI → Qualify as HOT / WARM / COLD<br>
+          ✅ Switch Node → Route by Lead Quality<br>
+          ✅ Gmail → Send Personalized Email per Lead Type
         </div>
       </div>
     </div>
@@ -1278,5 +1404,69 @@ animate();
 </script>
 <button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- PROJECT MODAL -->
+<div class="project-modal" id="projectModal">
+  <div class="project-modal-content">
+    <button class="project-modal-close" onclick="closeProjectModal()">×</button>
+
+    <div class="project-label">Featured Automation System</div>
+    <div class="modal-title">Acquisition Lab</div>
+    <div class="modal-sub">
+      Complete AI-powered client acquisition and appointment recovery ecosystem built using GoHighLevel and automation workflows.
+    </div>
+
+    <p style="color:#a8a3c8;line-height:1.8;margin-bottom:18px;">
+      This project was designed to automate the full customer journey — from lead capture all the way to appointment reminders, no-show recovery, follow-up nurturing, and CRM pipeline management.
+    </p>
+
+    <div class="modal-grid">
+      <div class="modal-box">
+        <h4>🚀 Main Features</h4>
+        <p>Landing pages, booking system, automated reminders, email workflows, lead nurturing, and CRM pipeline automation.</p>
+      </div>
+
+      <div class="modal-box">
+        <h4>⚡ Automations Built</h4>
+        <p>No-show recovery logic, automated stage movement, tag cleanup, follow-up sequences, and rebooking flows.</p>
+      </div>
+
+      <div class="modal-box">
+        <h4>🛠 Tools Used</h4>
+        <p>GoHighLevel, n8n, CRM Pipelines, Workflow Automations, Email Systems, Webhooks, Calendars.</p>
+      </div>
+
+      <div class="modal-box">
+        <h4>📈 Business Impact</h4>
+        <p>Helps businesses respond faster, reduce missed appointments, improve lead management, and save manual work hours.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://calendly.com/jasper-workflow/30min" class="btn-primary">Book a Consultation</a>
+      <a href="#contact" class="btn-secondary" onclick="closeProjectModal()">Contact Me</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function openProjectModal(){
+  document.getElementById('projectModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+
+function closeProjectModal(){
+  document.getElementById('projectModal').classList.remove('active');
+  document.body.style.overflow='auto';
+}
+
+window.addEventListener('click',function(e){
+  const modal=document.getElementById('projectModal');
+  if(e.target===modal){
+    closeProjectModal();
+  }
+});
+</script>
+
 </body>
 </html>

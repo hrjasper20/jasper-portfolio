@@ -964,10 +964,6 @@
   /* header logo: the JD mark in a circle, same as the hero booking pill and logo-jd.svg */
   .top .logo i{border-radius:50%}
   .logo i svg{display:block;width:100%;height:100%}
-  /* --- dark-mode-only light streaks behind the sections (2026-10-03) --- */
-  .ds-bg{position:fixed;left:0;top:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;opacity:0;display:none}
-  html.ds-on .ds-bg{display:block}
-  html.ds-on[data-theme="dark"] .hero,html.ds-on[data-theme="dark"] .work,html.ds-on[data-theme="dark"] .sv,html.ds-on[data-theme="dark"] .tsec,html.ds-on[data-theme="dark"] .about,html.ds-on[data-theme="dark"] .faq{background:transparent}
 </style>
 <script>if('IntersectionObserver' in window)document.documentElement.classList.add('js-rv');try{if(localStorage.getItem('theme')==='light')document.documentElement.removeAttribute('data-theme')}catch(e){}</script>
 <script type="application/ld+json">
@@ -1395,64 +1391,6 @@ try{(function(){
   function mark(id){for(var k in links){if(k===id)links[k].setAttribute('aria-current','location');else links[k].removeAttribute('aria-current');}}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)mark(e.target.id);});},{rootMargin:'-40% 0px -55% 0px'});
   [].forEach.call(document.querySelectorAll('main > section[id]'),function(sec){io.observe(sec);});
-}catch(e){}})();
-</script>
-<script>
-/* Light streaks, dark mode only. Rays leave a point behind the middle of the screen; each ray is a faint
-   mint line with one brighter streak travelling outward and speeding up, like depth. */
-(function(){try{
-  var root=document.documentElement,hero=document.getElementById('hero');
-  var dev=matchMedia('(hover:hover) and (pointer:fine) and (min-width:900px)'),rm=matchMedia('(prefers-reduced-motion: reduce)');
-  var cv=document.createElement('canvas');cv.className='ds-bg';cv.setAttribute('aria-hidden','true');document.body.insertBefore(cv,document.body.firstChild);
-  var ctx=cv.getContext('2d');if(!ctx)return;
-  var W=0,H=0,cx=0,cy=0,rays=[],raf=0,running=false,last=0,C='111,215,183';
-  function rnd(a,b){return a+Math.random()*(b-a)}
-  function build(){
-    rays=[];var n=W>1600?64:50,R=Math.hypot(W,H)*.75;
-    for(var i=0;i<n;i++){
-      var tilt=Math.pow(Math.random(),1.7)*.62*(Math.random()<.5?-1:1),ang=(i%2?0:Math.PI)+tilt;
-      var r0=W*rnd(.14,.3);
-      rays.push({dx:Math.cos(ang),dy:Math.sin(ang),r0:r0,r1:R,p:r0-rnd(0,R),v:rnd(38,95),L:rnd(80,240),a:rnd(.16,.32),w:rnd(.8,1.5)});
-    }
-  }
-  function size(){
-    var d=Math.min(window.devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;cx=W*.5;cy=H*.47;
-    cv.width=Math.round(W*d);cv.height=Math.round(H*d);ctx.setTransform(d,0,0,d,0,0);build();
-  }
-  function level(){
-    if(!hero)return 1;var h=hero.offsetHeight,y=window.scrollY;
-    return Math.max(0,Math.min(1,(y-h*.4)/(h*.45)));
-  }
-  function frame(t){
-    raf=requestAnimationFrame(frame);
-    var o=level();cv.style.opacity=o;
-    var dt=last?Math.min(60,t-last):16;last=t;
-    if(o<.01)return;
-    ctx.clearRect(0,0,W,H);ctx.lineCap='round';
-    ctx.beginPath();ctx.lineWidth=1;ctx.strokeStyle='rgba('+C+',.055)';
-    for(var i=0;i<rays.length;i++){var r=rays[i];ctx.moveTo(cx+r.dx*r.r0,cy+r.dy*r.r0);ctx.lineTo(cx+r.dx*r.r1,cy+r.dy*r.r1);}
-    ctx.stroke();
-    for(i=0;i<rays.length;i++){
-      r=rays[i];r.p+=r.v*dt/1000*(1+Math.max(0,r.p-r.r0)/r.r1*2.2);
-      if(r.p-r.L>r.r1){r.p=r.r0-rnd(0,r.r1*.9);r.v=rnd(38,95);}
-      var head=Math.min(r.p,r.r1),tail=Math.max(r.r0,r.p-r.L);if(head<=tail)continue;
-      var x1=cx+r.dx*tail,y1=cy+r.dy*tail,x2=cx+r.dx*head,y2=cy+r.dy*head;
-      var g=ctx.createLinearGradient(x1,y1,x2,y2);g.addColorStop(0,'rgba('+C+',0)');g.addColorStop(1,'rgba('+C+','+r.a+')');
-      ctx.strokeStyle=g;ctx.lineWidth=r.w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
-    }
-  }
-  function allowed(){return root.getAttribute('data-theme')==='dark'&&dev.matches&&!rm.matches;}
-  function update(){
-    var ok=allowed();root.classList.toggle('ds-on',ok);
-    var go=ok&&!document.hidden;
-    if(go&&!running){running=true;size();last=0;raf=requestAnimationFrame(frame);}
-    else if(!go&&running){running=false;cancelAnimationFrame(raf);ctx.clearRect(0,0,W,H);cv.style.opacity=0;}
-  }
-  new MutationObserver(update).observe(root,{attributes:true,attributeFilter:['data-theme']});
-  [dev,rm].forEach(function(m){if(m.addEventListener)m.addEventListener('change',update);else if(m.addListener)m.addListener(update);});
-  document.addEventListener('visibilitychange',update);
-  addEventListener('resize',function(){if(running)size();});
-  update();
 }catch(e){}})();
 </script>
 </body>

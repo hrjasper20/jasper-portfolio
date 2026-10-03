@@ -836,8 +836,6 @@
   .hm-glow{position:absolute;z-index:-1;left:50%;top:46%;width:min(820px,84%);aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
     background:radial-gradient(closest-side at 40% 44%,rgba(79,191,159,.22),rgba(79,191,159,0) 72%),radial-gradient(closest-side at 64% 62%,rgba(31,111,92,.10),rgba(31,111,92,0) 74%)}
   .hm-h1{align-self:center;max-width:1040px;margin:0 auto;text-align:center;font-weight:600;font-size:clamp(30px,4.4vw,64px);line-height:1.08;letter-spacing:-.035em;color:#172A39;text-wrap:balance}
-  .hm-h1 .hm-l1{color:#172A39}
-  .hm-h1 .hm-l2{color:#1F6F5C;background:linear-gradient(100deg,#1F6F5C 15%,#2E8A70 85%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
   .hm-rail{position:absolute;top:50%;left:clamp(18px,2vw,30px);transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:16px;font-size:14px;font-weight:500;letter-spacing:.04em;color:#3F4E5C;white-space:nowrap}
   .hm-rail span{writing-mode:vertical-rl;transform:rotate(180deg)}
   .hm-rail i{display:block;width:1px;height:72px;background:currentColor;opacity:.55}
@@ -866,8 +864,7 @@
   @keyframes hmUp{from{opacity:0;transform:translateY(22px)}}
   html[data-theme="dark"] .hm-frame{background:rgba(221,251,239,.025);border-color:rgba(221,251,239,.10)}
   html[data-theme="dark"] .hm-glow{opacity:.55}
-  html[data-theme="dark"] .hm-h1,html[data-theme="dark"] .hm-h1 .hm-l1{color:#DDFBEF}
-  html[data-theme="dark"] .hm-h1 .hm-l2{background:none;-webkit-text-fill-color:#6FD7B7;color:#6FD7B7}
+  html[data-theme="dark"] .hm-h1{color:#DDFBEF}
   html[data-theme="dark"] .hm-rail,html[data-theme="dark"] .hm-meta,html[data-theme="dark"] .hm-lead{color:#C3DDD2}
   html[data-theme="dark"] .hm-meta b{color:#6FD7B7}
   html[data-theme="dark"] .hm-more,html[data-theme="dark"] .hm-bt b{color:#DDFBEF}
@@ -1000,7 +997,7 @@
   <div class="hm-frame">
     <div class="hm-glow" aria-hidden="true"></div>
     <div class="hm-rail" aria-hidden="true"><span>Scroll</span><i></i></div>
-    <h1 class="hm-h1"><span class="hm-l1">I build automations that</span> <span class="hm-l2">answer leads, book calls and handle the manual work.</span></h1>
+    <h1 class="hm-h1">I build automations that answer leads, book calls and handle the manual work.</h1>
     <div class="hm-foot">
       <div class="hm-intro">
         <p class="hm-lead">I work in GoHighLevel, n8n and AI tools, for small businesses. You deal with me directly, from the first call to the finished setup.</p>

@@ -62,12 +62,52 @@
           var bar = document.querySelector('meta[name="theme-color"]');
           if (bar) bar.setAttribute('content', '#182833');
         }
+        // The site's own "reduce motion" switch (lib/a11y.ts), early enough
+        // for the start-up loader below to hold still.
+        try {
+          if (JSON.parse(localStorage.getItem('kv-a11y') || '{}').motion) {
+            document.documentElement.dataset.a11yMotion = 'true';
+          }
+        } catch (e) {}
       })();
     </script>
-    <script type="module" crossorigin src="/hire/assets/index-CxVjfpkL.js"></script>
-    <link rel="stylesheet" crossorigin href="/hire/assets/index-BLFD3PS8.css">
+    <noscript><style>#boot { display: none; }</style></noscript>
+    <script type="module" crossorigin src="/hire/assets/index-CCdGbOif.js"></script>
+    <link rel="stylesheet" crossorigin href="/hire/assets/index-BLEPu03T.css">
   </head>
   <body>
+    <!-- Start-up loader (2026-10-07): the JD mark with a light running along
+         its one stroke, painted with the first frame while the app downloads
+         (cold loads showed a blank page). Styles: src/styles/boot.css. Run by
+         src/components/IntroOverlay.tsx, which turns it into the intro on
+         Home's first visit or fades it once the page has rendered. The path
+         is JD_PATH in src/components/JdMark.tsx; keep the two in step. -->
+    <div id="boot" class="jd-intro">
+      <div class="jd-intro__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" focusable="false">
+          <defs><path id="jd-p" d="M11 29a6 6 0 0 0 12 0V13h3a11 11 0 0 1 0 22h-9" /></defs>
+          <circle cx="24" cy="24" r="24" />
+          <use class="jd-intro__track" href="#jd-p" />
+          <path class="jd-intro__ink" d="M11 29a6 6 0 0 0 12 0V13h3a11 11 0 0 1 0 22h-9" />
+        </svg>
+        <span class="jd-intro__run">
+          <svg viewBox="0 0 48 48" style="--i: 0"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 1"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 2"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 3"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 4"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 5"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 6"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 7"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 8"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 9"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 10"><use href="#jd-p" /></svg>
+          <svg viewBox="0 0 48 48" style="--i: 11"><use href="#jd-p" /></svg>
+        </span>
+      </div>
+      <p class="jd-intro__name" aria-hidden="true">Jasper Dio</p>
+      <p class="jd-intro__slow">Still loading. <a href="">Reload the page</a></p>
+    </div>
     <div id="root"></div>
   </body>
 </html>

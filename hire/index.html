@@ -1,0 +1,73 @@
+<!doctype html>
+<!--
+  Required Notice: Copyright (c) 2026 BrewedOps (https://github.com/brewed-ops/portfolio-template)
+  This site is built on the BrewedOps portfolio template, used under the PolyForm Noncommercial
+  License 1.0.0 (https://polyformproject.org/licenses/noncommercial/1.0.0) plus its additional
+  permission for your own portfolio. The 3D simplex noise in the background shader is
+  Copyright (c) 2011 Ashima Arts / Ian McEwan, MIT License (https://github.com/ashima/webgl-noise).
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover: without it every env(safe-area-inset-*) the phone
+         shell pads with is 0. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Jasper Dio | GoHighLevel VA and AI Automation Specialist</title>
+    <meta name="description" content="John Jasper Dio, a GoHighLevel VA and AI automation specialist in the Philippines. Seven builds you can open, skills linked to proof, and your working hours in Philippine time." />
+    <meta name="author" content="John Jasper Dio" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <!-- The browser bar takes the page colour (--cream per theme); the inline
+         theme script below and lib/theme.ts keep it in step with the toggle.
+         Literal hex here only because this runs before any stylesheet loads. -->
+    <meta name="theme-color" content="#EAF2EE" />
+    <!-- Lives at jasperdio.vercel.app/hire, beside the client site at the root
+         (vite.config.ts base, src/lib/base.ts). Link previews need full https:// URLs. -->
+    <link rel="canonical" href="https://jasperdio.vercel.app/hire/" />
+
+    <link rel="icon" type="image/svg+xml" href="/hire/jasper/logo-jd.svg" />
+
+    <!-- nosniff and the other security headers are set in vercel.json; a meta
+         tag cannot set them. -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- The rail avatar is above the fold on every desktop route. Keep this in
+         sync with profile.avatarSrc in src/data/profile.ts. -->
+    <link rel="preload" as="image" href="/hire/jasper/photo.webp" fetchpriority="high" media="(min-width: 1100px)" />
+
+    <!-- Open Graph / social share. public/og-image.jpg is this site's own
+         preview (scripts/og-image.mjs); it used to borrow the main site's. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Jasper Dio" />
+    <meta property="og:title" content="Jasper Dio | GoHighLevel VA and AI Automation Specialist" />
+    <meta property="og:description" content="Seven GoHighLevel, n8n and AI builds you can open, skills linked to proof, and your working hours in Philippine time." />
+    <meta property="og:url" content="https://jasperdio.vercel.app/hire/" />
+    <meta property="og:image" content="https://jasperdio.vercel.app/hire/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Jasper Dio, AI Automation Specialist: GoHighLevel, n8n and AI tools." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Theme before first paint: no flash of the wrong palette. Default is
+         light; dark is the visitor's opt-in, persisted in localStorage. -->
+    <script>
+      (function () {
+        try {
+          document.documentElement.dataset.theme =
+            localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+        if (document.documentElement.dataset.theme === 'dark') {
+          var bar = document.querySelector('meta[name="theme-color"]');
+          if (bar) bar.setAttribute('content', '#182833');
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/hire/assets/index-DzqQWPiE.js"></script>
+    <link rel="stylesheet" crossorigin href="/hire/assets/index-ERgyPBr9.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

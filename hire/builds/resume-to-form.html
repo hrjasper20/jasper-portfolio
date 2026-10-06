@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume to company form | Jasper Dio</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAF2EE;color:#3F4E5C;font:400 16px/1.65 Poppins,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{color:#172A39;margin:0;letter-spacing:-.01em}
+p{margin:0}
+.top{background:#172A39;color:#C9DAD2;padding:48px clamp(20px,5vw,64px) 44px;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(closest-side,rgba(79,191,159,.35),transparent)}
+.lab{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pill{font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.1);color:#DDFBEF;border:1px solid rgba(255,255,255,.18)}
+.pill.real{background:#4FBF9F;color:#0F1E28;border-color:transparent}
+.top h1{color:#fff;font-size:clamp(34px,5vw,58px);line-height:1.05;font-weight:700;letter-spacing:-.03em;margin-top:16px;max-width:16ch}
+.top .sub{margin-top:12px;font-size:17px;color:#B9CEC5;max-width:52ch}
+.logos{display:flex;gap:8px;margin-top:22px}
+.logos span{width:42px;height:42px;border-radius:12px;background:#fff;display:grid;place-items:center}
+.logos img{max-width:26px;max-height:24px}
+main{padding:36px clamp(20px,5vw,64px) 56px;max-width:1100px}
+.text{font-size:17px;max-width:62ch}
+.cs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:4px}
+.cs div{background:#fff;border:1px solid rgba(23,42,57,.1);border-radius:16px;padding:18px 20px}
+.cs b{display:block;color:#172A39;font-weight:600;margin-bottom:4px}
+.cs p{font-size:15px;line-height:1.6}
+.shots{display:grid;gap:22px;margin-top:28px}
+.shots figure{margin:0}
+.win{background:#fff;border:1px solid rgba(23,42,57,.12);border-radius:14px;overflow:hidden;box-shadow:0 16px 40px -24px rgba(23,42,57,.5)}
+.win>i{display:block;height:26px;background:#EEF1EC;border-bottom:1px solid rgba(23,42,57,.08);position:relative}
+.win>i::before{content:"";position:absolute;left:12px;top:9px;width:8px;height:8px;border-radius:50%;background:#1F6F5C;box-shadow:13px 0 0 #C9D2CB,26px 0 0 #C9D2CB}
+.win img{display:block;width:100%;height:auto}
+figcaption{margin-top:8px;font-size:14.5px;color:#5A6774}
+.flowbox{margin-top:28px;background:#fff;border:1px solid rgba(23,42,57,.1);border-radius:16px;padding:34px 16px}
+.flow{display:flex;flex-direction:column;align-items:center;gap:6px}
+.frow{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.fn{background:#E8F0EB;border:1px solid rgba(31,111,92,.25);color:#172A39;border-radius:12px;padding:8px 16px;font-weight:500;font-size:15px;text-align:center}
+.fa{color:#1F6F5C;line-height:0}
+h2{font-size:20px;margin:34px 0 14px;font-weight:600}
+.parts{display:grid;gap:14px}
+.parts div{border-left:3px solid #1F6F5C;padding:2px 0 2px 16px}
+.parts b{color:#172A39;font-weight:600}
+.parts p{font-size:15.5px}
+.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px}
+.list li{display:flex;gap:9px;font-size:15.5px}
+.list svg{color:#1F6F5C;flex:none;margin-top:3px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.steps div{background:#fff;border:1px solid rgba(23,42,57,.1);border-radius:16px;padding:18px 20px}
+.steps b{color:#172A39;font-weight:600}
+.steps ol{margin:8px 0 0;padding-left:20px;font-size:15.5px}
+.tools{display:flex;flex-wrap:wrap;gap:7px}
+.tools span{background:#E8F0EB;color:#1A5E4E;font-size:14px;font-weight:500;padding:5px 13px;border-radius:999px}
+.foot{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;padding-top:26px;border-top:1px solid rgba(23,42,57,.12)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:15.5px;text-decoration:none}
+.btn-p{background:#1F6F5C;color:#fff}.btn-p:hover{background:#185A4A}
+.btn-g{border:1.5px solid rgba(23,42,57,.25);color:#172A39}.btn-g:hover{border-color:#1F6F5C}
+:focus-visible{outline:3px solid #1F6F5C;outline-offset:3px}
+@media (max-width:760px){.cs,.list{grid-template-columns:1fr}.top{padding-top:36px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="lab"><span class="pill real">Real project</span><span class="pill">Real project</span></div>
+  <h1>Resume to company form</h1>
+  <p class="sub">AI-powered resume to company form, built for an HR team</p>
+  <div class="logos" aria-hidden="true"><span><img src="../icons/ai/n8n.svg" alt=""></span><span><img src="../jasper/tools/google-gemini.svg" alt=""></span></div>
+</header>
+<main>
+  
+  <div class="cs"><div><b>The problem</b><p>An HR team spent a lot of time manually copying details from resumes into company forms.</p></div><div><b>What I built</b><p>A flow that reads a resume dropped into Google Drive, fills in the application form, and saves it back.</p></div><div><b>What changed</b><p>The manual encoding now runs on its own, and the form is ready to review.</p></div></div>
+  <div class="shots"><figure><div class="win"><i></i><img src="../jasper/shots/p2.jpg" alt="The n8n workflow that reads the resume and fills in the form."></div><figcaption>The n8n workflow that reads the resume and fills in the form.</figcaption></figure></div>
+  
+  
+  
+  <h2>Tools</h2><div class="tools"><span>n8n</span><span>Google Drive</span><span>Google Gemini</span><span>AI Agent</span><span>Carbone</span></div>
+  <div class="foot">
+    
+    <a class="btn btn-p" href="https://calendly.com/jasper-workflow/30min" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</main>
+</body>
+</html>

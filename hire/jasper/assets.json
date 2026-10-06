@@ -1,0 +1,67 @@
+{
+  "photo": "/jasper/photo.webp",
+  "acq1": "/jasper/shots/acq1.webp",
+  "acq2": "/jasper/shots/acq2.webp",
+  "acq3": "/jasper/shots/acq3.webp",
+  "p1": "/jasper/shots/p1.jpg",
+  "p2": "/jasper/shots/p2.jpg",
+  "p3": "/jasper/shots/p3.jpg",
+  "p4": "/jasper/shots/p4.jpg",
+  "logos": [
+    {
+      "name": "GoHighLevel",
+      "src": "/jasper/tools/gohighlevel.png",
+      "wordmark": false
+    },
+    {
+      "name": "n8n",
+      "src": "/jasper/tools/n8n.png",
+      "wordmark": true
+    },
+    {
+      "name": "Claude Code",
+      "src": "/jasper/tools/claude-code.svg",
+      "wordmark": false
+    },
+    {
+      "name": "Gmail",
+      "src": "/jasper/tools/gmail.svg",
+      "wordmark": false
+    },
+    {
+      "name": "Xiaomi AI",
+      "src": "/jasper/tools/xiaomi-ai.svg",
+      "wordmark": false
+    },
+    {
+      "name": "Vapi",
+      "src": "/jasper/tools/vapi.png",
+      "wordmark": true
+    },
+    {
+      "name": "Notion",
+      "src": "/jasper/tools/notion.svg",
+      "wordmark": false
+    },
+    {
+      "name": "ElevenLabs",
+      "src": "/jasper/tools/elevenlabs.png",
+      "wordmark": true
+    },
+    {
+      "name": "Google Gemini",
+      "src": "/jasper/tools/google-gemini.svg",
+      "wordmark": false
+    },
+    {
+      "name": "Google Sheets",
+      "src": "/jasper/tools/google-sheets.svg",
+      "wordmark": false
+    },
+    {
+      "name": "Facebook Messenger",
+      "src": "/jasper/tools/facebook-messenger.svg",
+      "wordmark": false
+    }
+  ]
+}
